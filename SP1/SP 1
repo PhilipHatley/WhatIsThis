@@ -1,0 +1,52 @@
+//Parameters of the ball and movement
+
+float ballX = 300;
+float ballY = 100;
+float dirX = 5;
+float dirY = 6;
+
+//Scale of the window 
+
+void setup()
+{
+  size(600, 400);
+}
+void draw()
+{
+  background(255, 255, 255);
+  ellipse(ballX, ballY, 25, 25);
+  fill(0, 0, 0);
+  rect(mouseX, 380, 50, 20);
+
+  // Movement of the "bar" and "ball"
+  if (ballY >= 400)
+  {
+    dirY = -4;
+    ballY += dirY;
+  } else if (ballY <= 0)
+  {
+    dirY = 4;
+    ballY += dirY;
+  } else if (ballY >= 380 && ballX >= mouseX && ballX <= mouseX+80)
+  {
+    dirY = -4;
+    ballY += dirY;
+  } else
+  {
+    ballY += dirY;
+  }
+  if (ballX <= 0)
+  {
+    dirX = 4;
+    ballX += dirX;
+  } else if (ballX >= 600)
+  {
+    dirX = -4;
+    ballX += dirX;
+  } else
+  {
+    ballX += dirX;
+  }
+}
+
+// want to get as score into the game but clueless
